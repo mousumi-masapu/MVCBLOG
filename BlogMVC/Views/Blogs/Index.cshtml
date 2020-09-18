@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BlogMVC.Blog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Blog Home Page</h2>
+<p>
+    @Html.ActionLink("Upload New Article", "Uploadblog")
+</p>
+<table class="table">
+   
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BUrl)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BCategory)
+                </td>
+                <td>
+                    <a href=@(item.BUrl) target="_blank">Read Article</a>
+
+                </td>
+
+            </tr>
+        }
+
+    </table>
